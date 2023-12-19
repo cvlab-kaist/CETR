@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>CETR</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ku-cvlab.github.io/CETR/">
+    <meta property="og:title" content="CETR">
+    <meta property="og:description" content="">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/codemirror.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/video_comparison.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QVFM103BVF"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QVFM103BVF');
+</script>
+
+<body>
+    <div class="container" id="header" style="text-align: center; margin: auto;">
+        <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+            <h2 class="col-md-12 text-center" id="title">
+                <br>Context Enhanced Transformer for Single Image Object Detection in Video Data<br>
+                <small>
+                    AAAI 2024
+                </small>
+            </h2>
+        </div>
+        <div class="row" id="author-row" style="margin:0 auto;">
+            <div class="col-md-12 text-center" style="display: table; margin:0 auto">
+                <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
+                    Seungjun&nbsp;An<sup>1</sup>
+                </a>
+                <span style="padding-left: 20px;"></span>
+                <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
+                    Seonghoon&nbsp;Park<sup>1</sup>
+                </a>
+                <span style="padding-left: 20px;"></span>
+                <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
+                    Gyeongnyeon&nbsp;Kim<sup>1</sup>
+                </a>
+                <br>
+                <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
+                    Jeongyeol&nbsp;Baek<sup>2</sup>
+                </a>
+                <span style="padding-left: 20px;"></span>
+                <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
+                    Byeongwon&nbsp;Lee<sup>2</sup> 
+                </a>
+                <span style="padding-left: 20px;"></span>
+                <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
+                    Seungryong&nbsp;Kim<sup>1</sup>
+                </a>
+                <table class="author-table" id="author-table">
+                    <tr>
+                        <td>
+                            <sup>1</sup>Korea University
+                        </td>
+                        <td>
+                            <sup>2</sup>SK Telecom
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('author-row').style.maxWidth = document.getElementById("-row").clientWidth + 'px';
+    </script>
+
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <a href="https://github.com/KU-CVLAB/CETR">
+                            <img src="./img/paper_image.png" height="60px">
+                            <h4><strong>Paper</strong></h4>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/KU-CVLAB/CETR" target="_blank">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+
+            
+	<div class="container">   
+            <div class="row">
+		<div class="col-md-3">
+		    <div>
+			<video class="video" id="Teaser"  width="20%"  loop playsinline autoPlay muted src="./img/final0.mp4" onplay="resizeAndPlay(this)"></video>
+			<canvas width="100" height="100" class="videoMerge" id="TeaserMerge"></canvas>
+		    </div>
+            	</div>
+		<div class="col-md-3">
+		    <div>
+			<video class="video" id="0758"  width="20%"  loop playsinline autoPlay muted src="./img/final1.mp4" onplay="resizeAndPlay(this)"></video>
+			<canvas width="100" height="100" class="videoMerge" id="0758Merge"></canvas>
+		    </div>
+            	</div>
+        <div class="col-md-3">
+            <div>
+            <video class="video" id="0710d"  width="20%"  loop playsinline autoPlay muted src="./img/final2.mp4" onplay="resizeAndPlay(this)"></video>
+            <canvas width="100" height="100" class="videoMerge" id="0710dMerge"></canvas>
+            </div>
+                </div>
+        <div class="col-md-3">
+            <div>
+            <video class="video" id="0758d"  width="20%"  loop playsinline autoPlay muted src="./img/final3.mp4" onplay="resizeAndPlay(this)"></video>
+            <canvas width="100" height="100" class="videoMerge" id="0758dMerge"></canvas>
+            </div>
+                </div>
+            	</div>
+            </div>
+	</div>
+
+	
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    Coming Soon!
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Qualitative Results
+                    </h3>
+                    Coming Soon!
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Quantitative Results
+                    </h3>
+                    Coming Soon!
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Main Architecture
+                    </h3>
+                    <div class="text-justify">
+                        Coming Soon!
+                    </div>
+                    <div class="text-center">
+                        <img src="./img/coponerf/main_architecture.png" width="100%">
+                    </div>
+                </div>
+            </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10">
+                    <textarea id="bibtex" class="form-control" readonly>
+.
+                    </textarea>
+                </div>
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Acknowledgements
+                    </h3>
+                    <p class="text-justify">
+
+                        The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+</body>
+
+</html>
