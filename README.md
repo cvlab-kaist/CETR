@@ -1,1 +1,1 @@
-# CoPoNeRF
+# CETR
