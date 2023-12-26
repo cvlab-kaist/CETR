@@ -18,6 +18,8 @@
     <meta property="og:title" content="CETR">
     <meta property="og:description" content="">
 
+
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/codemirror.min.css">
@@ -44,7 +46,9 @@
     <div class="container" id="header" style="text-align: center; margin: auto;">
         <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
             <h2 class="col-md-12 text-center" id="title">
-                <br>Context Enhanced Transformer for Single Image Object Detection in Video Data<br>
+            <b>
+                Context Enhanced Transformer for Single Image Object Detection in Video Data
+            </b>
                 <small>
                     AAAI 2024
                 </small>
@@ -52,27 +56,28 @@
         </div>
         <div class="row" id="author-row" style="margin:0 auto;">
             <div class="col-md-12 text-center" style="display: table; margin:0 auto">
+                <span style="padding-left: 25px;"></span>
                 <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
-                    Seungjun&nbsp;An<sup>1</sup>
+                    Seungjun&nbsp;An*<sup>1</sup>
                 </a>
-                <span style="padding-left: 20px;"></span>
+                <span style="padding-left: 25px;"></span>
                 <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
-                    Seonghoon&nbsp;Park<sup>1</sup>
+                    Seonghoon&nbsp;Park*<sup>1</sup>
                 </a>
-                <span style="padding-left: 20px;"></span>
+                <span style="padding-left: 10px;"></span>
                 <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
-                    Gyeongnyeon&nbsp;Kim<sup>1</sup>
+                    Gyeongnyeon&nbsp;Kim*<sup>1</sup>
                 </a>
                 <br>
-                <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
+                <a style="text-decoration:none">
                     Jeongyeol&nbsp;Baek<sup>2</sup>
                 </a>
-                <span style="padding-left: 20px;"></span>
-                <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
+                <span style="padding-left: 20px"></span>
+                <a style="text-decoration:none">
                     Byeongwon&nbsp;Lee<sup>2</sup> 
                 </a>
                 <span style="padding-left: 20px;"></span>
-                <a style="text-decoration:none" href="https://ku-cvlab.github.io/CETR/">
+                <a style="text-decoration:none" href="https://cvlab.korea.ac.kr/members/faculty">
                     Seungryong&nbsp;Kim<sup>1</sup>
                 </a>
                 <table class="author-table" id="author-table">
@@ -85,6 +90,9 @@
                         </td>
                     </tr>
                 </table>
+                <small>
+                    *Equal Contribution
+                </small>
             </div>
         </div>
     </div>
@@ -108,117 +116,149 @@
                                 <h4><strong>Code</strong></h4>
                         </a>
                     </li>
+                    
                 </ul>
             </div>
         </div>
         
 
             
-	<div class="container">   
-            <div class="row">
-		<div class="col-md-3">
-		    <div>
-			<video class="video" id="Teaser"  width="20%"  loop playsinline autoPlay muted src="./img/final0.mp4" onplay="resizeAndPlay(this)"></video>
-			<canvas width="100" height="100" class="videoMerge" id="TeaserMerge"></canvas>
-		    </div>
-            	</div>
-		<div class="col-md-3">
-		    <div>
-			<video class="video" id="0758"  width="20%"  loop playsinline autoPlay muted src="./img/final1.mp4" onplay="resizeAndPlay(this)"></video>
-			<canvas width="100" height="100" class="videoMerge" id="0758Merge"></canvas>
-		    </div>
-            	</div>
-        <div class="col-md-3">
-            <div>
-            <video class="video" id="0710d"  width="20%"  loop playsinline autoPlay muted src="./img/final2.mp4" onplay="resizeAndPlay(this)"></video>
-            <canvas width="100" height="100" class="videoMerge" id="0710dMerge"></canvas>
-            </div>
-                </div>
-        <div class="col-md-3">
-            <div>
-            <video class="video" id="0758d"  width="20%"  loop playsinline autoPlay muted src="./img/final3.mp4" onplay="resizeAndPlay(this)"></video>
-            <canvas width="100" height="100" class="videoMerge" id="0758dMerge"></canvas>
-            </div>
-                </div>
-            	</div>
-            </div>
-	</div>
+        <div class="container">   
+            <div class="text-center">
+                <img src="./video/cat.gif" alt="GIF Image" width="1020" height="480">
 
+            </div>
+
+        </div>
+        <br>
+        <div class="container">   
+            <div class="text-center">
+                <img src="./video/zebra.gif" alt="GIF Image" width="1020" height="480">
+
+            </div>
+
+        </div>
 	
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-20 col-md-offset-0">
                 <h3>
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    Coming Soon!
+                    With the increasing importance of video data in real-world applications, 
+                    there is a rising need for efficient object detection methods that utilize temporal information. 
+                    While existing video object detection (VOD) techniques employ various strategies to address this challenge, 
+                    they typically depend on locally adjacent frames or randomly sampled images within a clip. 
+                    Although recent Transformer-based VOD methods have shown promising results, 
+                    their reliance on multiple inputs and additional network complexity to incorporate temporal information 
+                    limits their practical applicability. In this paper, we propose a novel approach to single image object detection, 
+                    called Context Enhanced TRansformer (CETR), by incorporating temporal context into DETR using a newly designed memory module. 
+                    To efficiently store temporal information, we construct a class-wise memory that collects contextual information across data. 
+                    Additionally, we present a classification-based sampling technique to selectively utilize the relevant memory for the current image. 
+                    In the testing, We introduce a test-time memory adaptation method that updates individual memory functions 
+                    by considering the test distribution. Experiments with CityCam and ImageNet VID datasets exhibit the efficiency of the framework 
+                    on various video systems.
                 </p>
             </div>
         </div>
 
-        <div class="row">
-            
-
+        
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-20 col-md-offset-0">
                     <h3>
                         Qualitative Results
                     </h3>
-                    Coming Soon!
+                    <div class="text-justify">
+                        Qualitative comparisions on <b>CityCam</b> Dataset.
+                    </div>
+                    <div class="text-center">
+                        <img src="./img/main_qual.png" width="100%">
+                    </div>
 
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-20 col-md-offset-0">
                     <h3>
                         Quantitative Results
                     </h3>
-                    Coming Soon!
+                    <div class="text-justify">
+                        The table presents our main results on the <b>CityCam</b> testing set.
+                        We applied our proposed framework to the single frame DETR-like methods 
+                        and conducted quantitative comparisons with other single frame detection methods 
+                        and a multi-frame DETR-like method,  TransVOD [TPAMI'2023] that use Deformable DETR [ICLR'2021] as their baseline. 
+                        Compared to the single frame baseline, our method showed improvements of 1.5% AP, 
+                        with only a marginal increase of allocated memory 
+                        and a marginal decrease of FPS.
+                    </div>
+                    <div class="text-center">
+                        <img src="./img/Citycam_table.png" width="90%">
+                    
+                
+                    <br>
+                    <div class="text-justify">
+                        Performance comparison with state-of-the-art real-
+                        time VOD methods with ResNet-101 backbone on ImageNet VID dataset. 
+                        Here we use AP 50 , which is commonly used as mean average precision
+                        (mAP) in other VOD methods.
+                    </div>
+                    <div class="text-center">
+                        <img src="./img/VID_table.png" width="60%">
+                    
 
                 </div>
             </div>
-
-
+        
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-20 col-md-offset-0">
                     <h3>
                         Main Architecture
                     </h3>
                     <div class="text-justify">
-                        Coming Soon!
+                        Overview of our framework. CETR builds upon the DETR architecture. Within our framework, a
+                        pivotal component is the context memory module (CMM), which serves as the input for the Transformer encoder. Subsequently,
+                        the encoded memory features are passed through the classification network. Predicted probability serves as a threshold for score-
+                        based sampling. The sampled class-wise memory is aggregated with the query using the cross-attention mechanism within the
+                        memory-guided Transformer decoder (MGD).
                     </div>
                     <div class="text-center">
-                        <img src="./img/coponerf/main_architecture.png" width="100%">
+                        <img src="./img/main_arch.png" width="100%">
                     </div>
                 </div>
             </div>
 
+
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-20 col-md-offset-0">
                 <h3>
                     Citation
                 </h3>
                 <div class="form-group col-md-10">
                     <textarea id="bibtex" class="form-control" readonly>
-.
+@misc{an2023context,
+    title={Context Enhanced Transformer for Single Image Object Detection}, 
+    author={Seungjun An and Seonghoon Park and Gyeongnyeon Kim and Jeongyeol Baek and Byeongwon Lee and Seungryong Kim},
+    year={2023},
+    eprint={2312.14492},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV}
+}
                     </textarea>
                 </div>
             </div>
         </div>
 
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-20 col-md-offset-0">
                     <h3>
                         Acknowledgements
                     </h3>
                     <p class="text-justify">
-
                         The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
                     </p>
                 </div>
             </div>
-        </div>
 
 
 </body>
